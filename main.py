@@ -1,124 +1,62 @@
-import base64 as b64 
-import pathlib
-import functools
-import queue
-import optparser 
-import threadding
-import loggin 
-import hashlib 
-import tarfile
-import hmac
-import mmap
-import fcntl 
-import io
-import sys 
 
+import fctnl, functools, hmac, io, logging, mmap, optparser, queue, tarfile, threadding
+import base64 as b64 
 
  class Digest():
-    def __init__(self, file):
-            self.name=file.name()
-            self.mode=file.mode()
-            self.body=file.read()
-            self.date=file.
-            self.map=mmap(file)
-    def _truncate_(self):
-        size=0 
-        
-        pass
+    def __init__(self, path ):
+        with open(path, "r+") as file:
+            self.file=file
+            self.map=mmap.mmap(n, )
+    encoding=Property(lambda self: self._file.encoding )
+    def __truncate__(self, bytes):
+        self.file.truncate([bytes])
+        return 
 
-    def _resize_(self)
-        pass
+    def __next__(self):
+        return file.next()
 
-    def _hashing_( body, *algorithm: str | int) -> Self:
-        def algo(algorithm):
-            if algorithm=="sha256"or 256:
-                sha256=hashlib.sha256
-                return sha256
-            elif algorithm:
-                return 
-            elif algorithm=="edmund"or"ed255*"or 255:
-                ed= hashlib.
-                return ed
+    def __hash__(self, algorithm) ->:
         hash = hmac.new(
             b'secret'
-            self.body,
-            algo(), 
+            self.file.body(),
+            algorithm(), 
         )
+    def __attest__(self) ->:
+        name=self.file.name()
+        level=self.file.mode()
+        depth=sum(1 for line in self.files)
+        n=self.file.fileno()
+        pointer=self.file.tell()
+        return (n, pointer, name, level, depth ) 
+    
 
-class Sector(thread.threadding): 
-    def _init__(self):
-        self.lifo= queue.LifoQueqe()
-    def proceed(self):
-        while lifo.full():
-            with self.lifo.get as it:
-                if it is None:
-                    break 
-                else: 
-                    break
 
-class Stack: 
-    def __init__(self):
-        self.stack=[]
+class BodyCore(Digest):
+    def __init__(self, path):
+        super().__init__(path)
 
-    def put(self, instance):
-        stack.
-
-bad_stack=Stack()
-good_stack=Stack()
-
-def symbol(target_file):
-    with open(target_file, 'rb') as file:
-        def flush_if_then(func):
-            def clean():
-                while file is not None: 
-                    try:
-                        fcntl.fcntl(file.fileno(), fcntl.F_SETFD, 1)
-                        return True
-                    except :
-                        if err:
-                            return False 
-                            continue 
-            if clean: 
-                return 0  
+    def story(self):
+        body=self.file.readlines()
+        sentence= itertools.chain.from_iterable(body)
+        fq={}
+        for word in sentence:
+            if word not in list(fq.keys()):
+                fq[word]=sum(sentence[word ])
             else: 
-                word= fcntl.bytesIO([])
-                            for i in :
-                                
-                                pass
-    if flush_if_then:
-       instance=Digest(file) 
-       Stack
-    elif : 
-        Digest(file)._truncate_()
-        pass
-    else : 
-        pass 
+                continue
+        return ( fq, sentence)
 
-def create():
-    def _write_on():
-        ...
-    pass
-
-items_search():
-isfile=os.path.isfile
-isdir=os.path.isdir 
-sector=Sector()
-options=sys.argv
-tree={}
+filename=''
+digest=Digest
+body_core=BodyCore
 
 def main():
-    items=[]
-    if len(parse)!= 0: 
-        raise SystemExit()
-    else: 
-        if isfile(parsed_symbols[0]) | isdir(parsed_symbols[0])
-            for i in parser: 
-                if isdir(i):
-                    for each_file in i:
-                        pass
-                        items.append(str(each_directory))
-                elif isfile(i):
-                    items.append(str(i))
-                else: 
-                    print(f"skip item {str(i)}")
-    pass
+    parser=optparser.OptionParser()
+    parser.add_option('-f', '--file', action="store", dest="filename")
+    parser.add_option('-ner', '--name-entity', default=False) 
+    parser.add_option('-i', '--info', default=True )
+    opts, args= parser.parser_args()
+
+
+if __name__ == '__main__':
+    main() 
